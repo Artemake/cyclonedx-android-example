@@ -1,0 +1,36 @@
+buildscript {
+    ext {
+        compose_ui_version = '1.3.0'
+    }
+}// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+    id 'com.android.application' version '7.4.0' apply false
+    id 'com.android.library' version '7.4.0' apply false
+    id 'org.jetbrains.kotlin.android' version '1.7.0' apply false
+    id 'org.cyclonedx.bom' version '1.7.4'
+}
+
+group = "group"
+version = "1.0"
+
+cyclonedxBom {
+    skipConfigs = [
+            "debugCompileClasspath",
+            "debugAndroidTestCompileClasspath",
+            "debugUnitTestCompileClasspath",
+            "releaseUnitTestCompileClasspath",
+            "debugUnitTestRuntimeClasspath",
+            "releaseUnitTestRuntimeClasspath"
+    ]
+    projectType = "application"
+    // Specified the version of the CycloneDX specification to use. Defaults to '1.4'
+    schemaVersion = "1.4"
+    // The file format generated, can be xml, json or all for generating both. Defaults to 'all'
+    outputFormat = "json"
+    // Exclude BOM Serial Number. Defaults to 'true'
+    includeBomSerialNumber = false
+    // Exclude License Text. Defaults to 'true'
+    includeLicenseText = false
+    // Override component version. Defaults to the project version
+    componentVersion = "2.0.0"
+}
