@@ -1,3 +1,3 @@
 # cyclonedx-android-example
 
-Run ./gradlew cyclonedxBom  
+Run at the terminal `./gradlew cyclonedxBom`
